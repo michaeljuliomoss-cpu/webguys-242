@@ -1,10 +1,10 @@
 "use client";
 
 const clients = [
-  { initials: "TG", name: "TechGuys.242", industry: "Tech Services", color: "bg-blue-500" },
-  { initials: "BT", name: "BraidsByTina", industry: "Beauty & Salon", color: "bg-emerald-500" },
-  { initials: "KG", name: "K&G Hair", industry: "Hair Salon", color: "bg-violet-500" },
-  { initials: "CR", name: "Carlo", industry: "Restaurant", color: "bg-amber-500" },
+  { initials: "TG", name: "TechGuys.242", industry: "Tech Services", color: "bg-gradient-to-br from-blue-500 to-blue-600" },
+  { initials: "BT", name: "BraidsByTina", industry: "Beauty & Salon", color: "bg-gradient-to-br from-emerald-500 to-emerald-600" },
+  { initials: "KG", name: "K&G Hair", industry: "Hair Salon", color: "bg-gradient-to-br from-violet-500 to-violet-600" },
+  { initials: "CR", name: "Carlo", industry: "Restaurant", color: "bg-gradient-to-br from-amber-500 to-amber-600" },
 ];
 
 const testimonials = [
@@ -13,21 +13,21 @@ const testimonials = [
     author: "BraidsByTina",
     industry: "Beauty & Salon",
     initial: "B",
-    color: "bg-emerald-500",
+    color: "bg-gradient-to-br from-emerald-500 to-emerald-600",
   },
   {
     quote: "The team understood exactly what we needed. Clean design, easy to manage, and our customers love the new site. Best investment we've made.",
     author: "K&G Hair",
     industry: "Hair Salon",
     initial: "K",
-    color: "bg-violet-500",
+    color: "bg-gradient-to-br from-violet-500 to-violet-600",
   },
   {
     quote: "From concept to launch in under two weeks. The backend dashboard they built saves us hours every week. Incredible value for the price.",
     author: "TechGuys.242",
     industry: "Tech Services",
     initial: "T",
-    color: "bg-blue-500",
+    color: "bg-gradient-to-br from-blue-500 to-blue-600",
   },
 ];
 
@@ -41,15 +41,17 @@ export default function Portfolio() {
           </span>
           <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">
             Trusted by{" "}
-            <span className="text-blue-600">Bahamas Businesses</span>
+            <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+              Bahamas Businesses
+            </span>
           </h2>
         </div>
 
         {/* Client logos */}
-        <div className="flex flex-wrap justify-center gap-6 mb-16">
+        <div className="flex flex-wrap justify-center gap-5 mb-16">
           {clients.map((client) => (
-            <div key={client.name} className="flex items-center gap-3 bg-gray-50 border border-gray-100 rounded-xl px-5 py-3">
-              <div className={`w-10 h-10 ${client.color} rounded-lg flex items-center justify-center text-white text-sm font-bold`}>
+            <div key={client.name} className="flex items-center gap-3 bg-gray-50 border border-gray-100 rounded-xl px-5 py-3 hover:shadow-md transition-shadow">
+              <div className={`w-10 h-10 ${client.color} rounded-lg flex items-center justify-center text-white text-sm font-bold shadow-sm`}>
                 {client.initials}
               </div>
               <div>
@@ -62,8 +64,8 @@ export default function Portfolio() {
 
         {/* Testimonials */}
         <div className="grid md:grid-cols-3 gap-6">
-          {testimonials.map((testimonial) => (
-            <div key={testimonial.author} className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
+          {testimonials.map((t) => (
+            <div key={t.author} className="bg-gray-50 rounded-2xl p-7 border border-gray-100 hover:shadow-lg transition-shadow">
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
                   <svg key={i} className="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
@@ -71,14 +73,14 @@ export default function Portfolio() {
                   </svg>
                 ))}
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed text-sm italic">&ldquo;{testimonial.quote}&rdquo;</p>
+              <p className="text-gray-600 mb-6 leading-relaxed text-sm italic">&ldquo;{t.quote}&rdquo;</p>
               <div className="flex items-center gap-3">
-                <div className={`w-10 h-10 ${testimonial.color} rounded-full flex items-center justify-center text-white text-sm font-bold`}>
-                  {testimonial.initial}
+                <div className={`w-10 h-10 ${t.color} rounded-full flex items-center justify-center text-white text-sm font-bold shadow-sm`}>
+                  {t.initial}
                 </div>
                 <div>
-                  <p className="font-bold text-gray-900 text-sm">{testimonial.author}</p>
-                  <p className="text-xs text-gray-400">{testimonial.industry}</p>
+                  <p className="font-bold text-gray-900 text-sm">{t.author}</p>
+                  <p className="text-xs text-gray-400">{t.industry}</p>
                 </div>
               </div>
             </div>
